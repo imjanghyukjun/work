@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>졸업프로젝트 / 장혁준</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    html, body {
+      background: rgb(235,235,235);
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 50px;
+      line-height: 1;
+      font-weight: normal;
+      color: #000;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    /* 레이아웃: 좌측 정보 / 가운데 작업설명 / 우측 리스트 */
+    .wrap {
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      gap: 80px; /* W와 설명 사이 간격 크게 */
+      align-items: start;
+      padding-bottom: 220px; /* 블랙바 높이(200px) + 여유 */
+    }
+
+    /* 좌측: 이름/소개/콘택트 */
+    .side h1,
+    .side h2,
+    .side p {
+      margin: 0 0 5px 0;
+      font-weight: normal;
+      font-size: 15px;
+    }
+
+    .side h2 {
+      margin-bottom: 20px;
+    }
+
+    .side h1 a,
+    .side h2 {
+      text-decoration: underline;
+    }
+
+    .side a {
+      color: #000;
+      text-decoration: none;
+    }
+    .side a:hover { color: rgb(118,251,106); }
+
+    /* 가운데: 작업 설명 */
+    .statement {
+      max-width: 50%;  /* 폭 절반으로 제한 */
+      line-height: 1.6;
+      text-align: left; /* 좌측 정렬 */
+      font-size: 15px;
+      white-space: normal;
+      word-break: keep-all;
+      overflow-wrap: normal;
+    }
+
+    .statement p {
+      margin: 0 0 0 0; /* 문단 간격 없음 */
+    }
+
+    .statement p + p {
+      text-indent: 13ch; /* 두 번째 문단 들여쓰기 */
+    }
+
+  
+
+    /* 하단 고정 네비게이션 바 */
+    .nav-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 20px;     /* 블랙바 높이 */
+      background: #000;
+      z-index: 100;
+    }
+
+    /* 반응형 */
+    @media (max-width: 900px) {
+      .wrap { grid-template-columns: 1fr; }
+      .statement { max-width: 100%; } /* 작은 화면에서는 제한 해제 */
+    }
+
+    .insta-text {
+      color: rgba(0,0,255);   /* 기본: 흐리게 */
+      text-decoration: none;    /* 밑줄 제거 */
+      transition: color 0.2s;   /* 부드럽게 색 변환 */
+    }
+    
+    .insta-text:hover {
+      color: rgb(0,0,255);        /* 마우스 올리면 진하게 */
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- 좌측: 고정 정보 -->
+    <aside class="side">
+      <h1><a href="index.html">졸업프로젝트</a></h1>
+      <h2>장혁준</h2>
+      <p><a href="tel:01033152384" class="insta-text">010-3315-2384</a></p>
+      <p><a href="https://instagram.com/janghyukjun_/" target="_blank" class="insta-text">instagram.com</a></p>
+      <p><a href="mailto:imjanghyukjun@gmail.com" target="_blank" class="insta-text">imjanghyukjun@gmail.com</a></p>
+    </aside>
+
+    <!-- 가운데: 작업 설명 -->
+    <div class="statement">
+      <p>
+        (2025.9.2작성) 문자 언어의 한계를 절감하고, 끊임없이 문자로 된 설명을 요구하는 사회에 큰 피로를 느껴온 작업자는
+        필리프 자코테가 확정적 언어를 경계하며 자신만의 언어로 '시'를 택해 풍경을 묘사했듯,
+        본인의 언어로 '이미지'를 택한다. 이번 작업은 24년 겨울에 촬영한 랭스 연작이 담긴다.
+      </p>
+      <p>
+        무(無)에 가까웠던 2024년 겨울 랭스의 풍경. 그 단순한 풍경이 나를 압도했던 경험은
+        나로 하여금 풍경(외양–상–이미지)이 고유한 언어를 지니며 언제나 자신만의 방식으로 말을 건네고 있다는 사실을,
+        그리고 그 언어가 어떤 언어보다도 검소하기에 가장 적절한 설명을 제공할 수 있다는 믿음을 갖게 만들었다.
+        이를 중심으로, 이미지가 가진 고유한 언어와 그 힘을 드러내는 시도를...
+      </p>
+      <p>
+        사진에세이의 성격을 갖는 책을 제작합니다 ! 외양 자체의 언어를 믿기에. 이미지가 강조될 수 있을 레이아웃, 커다란 판형의 책 !
+      </p>
+    </div>
+
+
+
+  <!-- 하단 고정 네비게이션 바 -->
+  <div class="nav-bar"></div>
+  
+    <script>
+      const deadline = new Date("2025-12-01T00:00:00");
+  
+      function updateCountdown() {
+        const now = new Date();
+        const diff = deadline - now;
+  
+        if (diff <= 0) {
+          document.getElementById("countdown").textContent = "!";
+          return;
+        }
+  
+        const totalHours = Math.floor(diff / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+  
+        const h = String(totalHours).padStart(2, "0");
+        const m = String(minutes).padStart(2, "0");
+        const s = String(seconds).padStart(2, "0");
+  
+        document.getElementById("countdown").textContent =
+          `${h}:${m}:${s}`;
+      }
+  
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+    </script>
+  
+  </body>
+  </html>
